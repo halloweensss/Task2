@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public interface ILookable
 {
@@ -7,4 +8,6 @@ public interface ILookable
     void Deactivate();
     void Show();
     void Hide();
+
+    String GetName();
 }

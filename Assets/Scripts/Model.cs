@@ -9,12 +9,11 @@ public class Model : MonoBehaviour, ILookable, IModel
     private MeshRenderer _meshRenderer;
     private Collider _collider;
     private Material _baseMaterial;
-    
-    [SerializeField]
-    private bool _isActive;
-    
-    [SerializeField] 
-    private Material _outlineMaterial;
+
+    [SerializeField] private String _name;
+    [SerializeField] private String _description;
+    [SerializeField] private bool _isActive;
+    [SerializeField] private Material _outlineMaterial;
 
     public void Start()
     {
@@ -53,5 +52,15 @@ public class Model : MonoBehaviour, ILookable, IModel
     {
         Activate();
         _meshRenderer.material = _baseMaterial;
+    }
+
+    public string GetName()
+    {
+        return _name;
+    }
+
+    public string GetDescription()
+    {
+        return _description;
     }
 }

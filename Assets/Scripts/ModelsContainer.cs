@@ -8,11 +8,8 @@ public class ModelsContainer : MonoBehaviour, ILookable, IContainer
     private Transform _transform;
     private Collider _collider;
     
-    [SerializeField]
-    private bool _isActive;
-
-    [SerializeField]
-    private List<GameObject> _lookables;
+    [SerializeField] private bool _isActive;
+    [SerializeField] private List<GameObject> _lookables;
 
     public void Start()
     {
@@ -53,5 +50,21 @@ public class ModelsContainer : MonoBehaviour, ILookable, IContainer
         {
             lookable.GetComponent<ILookable>().Deactivate();
         }
+    }
+
+    public string GetName()
+    {
+        return null;
+    }
+
+    public List<ILookable> GetContents()
+    {
+        List<ILookable> lookablesList = new List<ILookable>();
+        foreach (var lookable in _lookables)
+        {
+            lookablesList.Add(lookable.GetComponent<ILookable>());
+        }
+
+        return lookablesList;
     }
 }

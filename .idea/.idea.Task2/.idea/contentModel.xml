@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\zumik\.Rider2019.2\system\extResources" t="IncludeRecursive" />
@@ -10,8 +10,18 @@
           <e p="IContainer.cs" t="Include" />
           <e p="ILookable.cs" t="Include" />
           <e p="IModel.cs" t="Include" />
+          <e p="ITable.cs" t="Include" />
           <e p="Model.cs" t="Include" />
           <e p="ModelsContainer.cs" t="Include" />
+          <e p="Table.cs" t="Include" />
+          <e p="UI" t="Include">
+            <e p="DescriptionPanel.cs" t="Include" />
+            <e p="ModelButton.cs" t="Include" />
+            <e p="TableButton.cs" t="Include" />
+            <e p="UIContentManager.cs" t="Include" />
+            <e p="UIModels.cs" t="Include" />
+            <e p="UITables.cs" t="Include" />
+          </e>
           <e p="Watcher.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">

@@ -6,22 +6,23 @@ using UnityEngine;
 
 public class Watcher : MonoBehaviour
 {
-    [SerializeField]
-    private float _minDistance;
-    [SerializeField]
-    private float _smoothMovementSpeed;
-    [SerializeField]
-    private float _smoothRotationSpeed;
-    [SerializeField]
-    private Vector3 _basePosition;
-    [SerializeField]
-    private Vector3 _baseRotation;
+    [SerializeField] private float _minDistance;
+    [SerializeField] private float _smoothMovementSpeed;
+    [SerializeField] private float _smoothRotationSpeed;
+    [SerializeField] private Vector3 _basePosition;
+    [SerializeField] private Vector3 _baseRotation;
 
     private Vector3 _mousePosition;
     private Camera _camera;
     private Transform _transform;
     private bool _isWatching;
     private Stack<ILookable> _lookables;
+
+    public event Action OnClickTable;
+    public event Action OnClickContainerWithout;
+    public event Action<IContainer> OnClickContainer;
+    public event Action<IModel> OnClickModel;
+    public event Action OnClickBack;
 
     private void Start()
     {
@@ -74,10 +75,11 @@ public class Watcher : MonoBehaviour
         }
     }
 
-    private void LookTo(ILookable target)
+    public void LookTo(ILookable target)
     {
         if (_lookables.Count > 0)
         {
+
             IModel model = _lookables.Peek().GetTransform().GetComponent<IModel>();
             if (model != null)
             {
@@ -85,13 +87,42 @@ public class Watcher : MonoBehaviour
                 _lookables.Pop();
             }
         }
+        else
+        {
+            if (OnClickTable != null) 
+                OnClickTable.Invoke();
+        }
+
+        IContainer container = target.GetTransform().GetComponent<IContainer>();
+        
+        if (container != null)
+        {
+            while (_lookables.Count > 0)
+            {
+                _lookables.Peek().Hide();
+                _lookables.Pop();
+            }
+
+            if (OnClickContainerWithout != null) 
+                OnClickContainerWithout.Invoke();
+            
+            if (OnClickContainer != null) 
+                OnClickContainer.Invoke(container);
+        }
+
+        IModel model_ = target.GetTransform().GetComponent<IModel>();
+        if (model_ != null)
+        {
+            if (OnClickModel != null) 
+                OnClickModel.Invoke(model_);
+        }
 
         _lookables.Push(target);
         _isWatching = true;
         target.Show();
     }
 
-    private void Back()
+    public void Back()
     {
         if (_lookables.Count > 0)
         {
@@ -102,6 +133,9 @@ public class Watcher : MonoBehaviour
             }
 
             _isWatching = false;
+            
+            if (OnClickBack != null) 
+                OnClickBack.Invoke();
         }
     }
 

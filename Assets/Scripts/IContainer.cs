@@ -1,4 +1,6 @@
-﻿public interface IContainer
+﻿using System.Collections.Generic;
+
+public interface IContainer
 {
-    void Show();
+    List<ILookable> GetContents();
 }
