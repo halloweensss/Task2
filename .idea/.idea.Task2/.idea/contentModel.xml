@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\zumik\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\zumik\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Task2.-451249034.00" t="ExcludeRecursive" />
+    <e p="S:\Programms\Unity\GAME\Task2" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="IContainer.cs" t="Include" />
+          <e p="ILookable.cs" t="Include" />
+          <e p="IModel.cs" t="Include" />
+          <e p="Model.cs" t="Include" />
+          <e p="ModelsContainer.cs" t="Include" />
+          <e p="Watcher.cs" t="Include" />
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="Outline.shader" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Task2.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
