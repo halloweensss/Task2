@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Watcher : MonoBehaviour
 {
@@ -69,6 +70,9 @@ public class Watcher : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         { 
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
+            
             ILookable hitLookable = hit.transform.GetComponent<ILookable>();
             if(hitLookable != null)
                 LookTo(hitLookable);
