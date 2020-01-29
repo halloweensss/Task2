@@ -40,7 +40,7 @@ public class Watcher : MonoBehaviour
             CheckLook();
         }
 
-        if (Input.GetMouseButton(0) && _lookables.Count > 0)
+        if (Input.GetMouseButton(1) && _lookables.Count > 0)
         {
             RotationAround(_lookables.Peek().GetTransform().position);
         }
@@ -56,11 +56,6 @@ public class Watcher : MonoBehaviour
             transform.LookAt(null);
             SmoothMovement(_basePosition, 0);
             SmoothRotation(_baseRotation);
-        }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            Back();
         }
     }
 
